@@ -1,0 +1,30 @@
+---
+import { SITE } from '@data/constants';
+import Meta from '@components/Meta.astro';
+import Navbar from '@/components/sections/navbarFooter/Navbar.astro';
+import Footer from '@/components/sections/navbarFooter/Footer.astro';
+
+
+interface Props {
+  title?: string;
+  meta?: string;
+  structuredData?: string;
+  lang?: string;
+}
+
+const { title = SITE.title, meta, structuredData, lang = 'es-MX' } = Astro.props;
+---
+
+<html lang={ lang }>
+	<head>
+		<Meta />
+		<title>{ title }</title>
+	</head>
+	<body>
+    <Navbar />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+	</body>
+</html>
