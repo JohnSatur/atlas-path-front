@@ -1,0 +1,63 @@
+---
+---
+<section class="pt-32 pb-16">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto text-center mb-16">
+      <h1 class="font-title  text-xl md:text-7xl font-bold mb-6 leading-tight tracking-wider">
+        Expertos en la digitalización de tu negocio
+      </h1>
+      <p class="font-body text-2xl text-gray-600 mb-8 max-w-2xl mx-auto">
+        Somos una empresa xalapeña especializada en llevar tu negocio al ámbito digital.
+      </p>
+      <div class="flex gap-4 justify-center">
+        <a href="#contact" class="bg-primary text-white px-8 py-3 rounded-full hover:bg-secondary transition-colors">
+          Book Free Call
+        </a>
+        <a href="#learn-more" class="text-primary hover:text-secondary transition-colors px-8 py-3">
+          Learn More
+        </a>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      <div class="bg-white p-4 rounded-lg shadow-lg">
+        <div class="flex items-center gap-3">
+          <img src="https://via.placeholder.com/40" alt="Profile" class="rounded-full" />
+          <div>
+            <p class="font-semibold">Followers Gain</p>
+            <p class="text-green-500">+24.4%</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white p-4 rounded-lg shadow-lg text-center">
+        <div class="flex flex-col items-center">
+          <div class="flex -space-x-2">
+            {[1,2,3,4,5].map(() => (
+              <img src="https://via.placeholder.com/32" alt="User" class="w-8 h-8 rounded-full border-2 border-white" />
+            ))}
+          </div>
+          <p class="mt-2">Join 10,000+ Customer</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-4 rounded-lg shadow-lg">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="font-semibold">New Leads</p>
+            <p class="text-orange-500">$94,800</p>
+          </div>
+          <svg class="w-24 h-12" viewBox="0 0 100 50">
+            <path d="M0 40 Q25 20 50 35 T100 25" fill="none" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap justify-center items-center gap-12 opacity-50">
+      {[1,2,3,4,5,6].map(() => (
+        <img src="https://via.placeholder.com/120x40" alt="Client logo" class="h-8" />
+      ))}
+    </div>
+  </div>
+</section>

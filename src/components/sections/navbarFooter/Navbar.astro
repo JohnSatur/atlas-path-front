@@ -1,4 +1,31 @@
 ---
+import { Image } from 'astro:assets';
+import logoH from '@images/logo-horizontal.png';
+import Button from '@/components/ui/Button.astro';
 
+const navItems = [
+  { text: 'Quiénes Somos', href: '#about' },
+  { text: 'Servicios', href: '#services' },
+  { text: 'Portafolio', href: '#projects' },
+  { text: 'Nuestros Clientes', href: '#reviews' },
+  { text: 'Blog', href: '#blog' },
+];
 ---
 
+<header class="fixed w-full bg-transparent backdrop-blur-sm z-50 py-4">
+  <div class="container mx-auto px-4 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2 text-brand">
+      <Image src={ logoH } alt="Logo" width="200" />
+    </a>
+
+    <nav class="font-body hidden md:flex items-center gap-8">
+      {navItems.map(item => (
+        <a href={item.href} class="text-gray-600 hover:text-primary transition-colors">
+          {item.text}
+        </a>
+      ))}
+    </nav>
+
+    <Button text="Agenda una llamada" />
+  </div>
+</header>
