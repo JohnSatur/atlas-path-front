@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets';
+
+export interface Props {
+  title: string;
+  description: string;
+  icon: string;
+  link: string;
+  image: ImageMetadata;
+}
+
+const { title, description, icon, link, image } = Astro.props;
+---
+
+<div class="service-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group">
+  <div class="relative overflow-hidden">
+    <Image src={ image } alt={ title } class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+    <div class="absolute bottom-4 left-4 right-4">
+      <h3 class="text-xl font-bold font-title tracking-wide text-white group-hover:text-brand-300 transition-colors duration-300">{ title }</h3>
+    </div>
+  </div>
+  <div class="p-6 flex flex-col h-full">
+    <div class="flex items-center mb-4">
+      <i class={ `${ icon } text-brand-500 text-3xl mr-3 group-hover:scale-110 transition-transform duration-300` }></i>
+      <p class="text-slate-600 flex-grow">{ description }</p>
+    </div>
+    <a href={link} class="text-brand-600 hover:text-brand-800 font-medium inline-flex items-center group-hover:translate-x-2 transition-transform duration-300 mt-4">
+      Leer más
+      <i class="ri-arrow-right-line ml-1 text-sm"></i>
+    </a>
+  </div>
+</div>

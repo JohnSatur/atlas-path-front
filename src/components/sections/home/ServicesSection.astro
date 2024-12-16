@@ -1,0 +1,85 @@
+---
+import ServiceCard from '@/components/ui/ServiceCard.astro';
+
+import testImg from '@images/temp1.png';
+
+const services = [
+  {
+    title: 'Diseño gráfico',
+    description: 'Creamos diseños impactantes que comunican tu mensaje de manera efectiva.',
+    icon: 'ri-palette-fill',
+    link: '/servicios/diseno-grafico',
+    image: testImg
+  },
+  {
+    title: 'Animación digital',
+    description: 'Damos vida a tus ideas con animaciones cautivadoras y dinámicas.',
+    icon: 'ri-film-fill',
+    link: '/servicios/animacion-digital',
+    image: testImg
+  },
+  {
+    title: 'Diseño UI/UX',
+    description: 'Diseñamos interfaces intuitivas y experiencias de usuario excepcionales.',
+    icon: 'ri-stack-fill',
+    link: '/servicios/diseno-ui-ux',
+    image: testImg
+  },
+  {
+    title: 'Desarrollo de Software',
+    description: 'Creamos soluciones de software personalizadas y escalables.',
+    icon: 'ri-code-s-slash-line',
+    link: '/servicios/desarrollo-software',
+    image: testImg
+  },
+  {
+    title: 'Desarrollo de aplicaciones móviles',
+    description: 'Desarrollamos apps móviles innovadoras para iOS y Android.',
+    icon: 'ri-smartphone-fill',
+    link: '/servicios/apps-moviles',
+    image: testImg
+  },
+  {
+    title: 'Marketing digital',
+    description: 'Impulsamos tu presencia online con estrategias de marketing efectivas.',
+    icon: 'ri-megaphone-fill',
+    link: '/servicios/marketing-digital',
+    image: testImg
+  },
+  {
+    title: 'Análisis de datos',
+    description: 'Transformamos datos en insights accionables para tu negocio.',
+    icon: 'ri-pie-chart-2-fill',
+    link: '/servicios/analisis-datos',
+    image: testImg
+  },
+  {
+    title: 'Videoproducciones',
+    description: 'Producimos videos de alta calidad que cuentan tu historia.',
+    icon: 'ri-live-fill',
+    link: '/servicios/videoproducciones',
+    image: testImg
+  },
+  {
+    title: 'Fotografía',
+    description: 'Capturamos momentos e imágenes que resaltan tu marca.',
+    icon: 'ri-camera-3-fill',
+    link: '/servicios/fotografia',
+    image: testImg
+  }
+];
+
+---
+
+<section class="py-12">
+  <div class="container mx-auto px-4">
+      <h2 class="text-6xl font-bold text-center mb-8 font-title">Nuestros Servicios</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          services.map((service) => (
+            <ServiceCard {...service} />
+          ))
+        }
+      </div>
+  </div>
+</section>
