@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets';
+
+// SuccessCase.astro
+export interface Props {
+  title: string;
+  description: string;
+  image: ImageMetadata;
+  link: string;
+}
+
+const { title, description, image, link } = Astro.props;
+---
+
+<div class="success-case bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+  <div class="relative aspect-video">
+    <Image src={image} alt={title} class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">{title}</h3>
+    <p class="text-gray-600 mb-4">{description}</p>
+    <a href={link} class="inline-flex items-center text-brand-600 hover:text-brand-800 font-medium transition-colors duration-300">
+      Leer más
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+      </svg>
+    </a>
+  </div>
+</div>
