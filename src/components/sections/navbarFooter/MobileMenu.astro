@@ -1,0 +1,73 @@
+---
+import { Image } from 'astro:assets';
+import Button from '@components/ui/Button.astro';
+
+interface Props {
+  items: Array<{
+    text: string;
+    href: string;
+  }>;
+  logo: ImageMetadata;
+}
+
+const { items, logo } = Astro.props;
+---
+<div id="fullScreenMenu" class="fixed inset-0 bg-gradient-to-br from-white to-brand-200 z-50 hidden lg:hidden overflow-y-auto">
+  <div class="mx-auto px-6 py-8 flex flex-col items-center min-h-screen">
+    <a href="/" class="mt-4">
+      <Image src={logo} alt="Logo" width="300" />
+    </a>
+    
+    <nav class="flex flex-grow flex-col items-center justify-center gap-32">
+      <ul class="flex flex-col items-center gap-8">
+        {items.map(item => (
+          <li>
+            <a 
+              href={item.href} 
+              class="text-4xl font-semibold text-gray-800 hover:text-blue-600 transition duration-150 ease-in-out block"
+            >
+              {item.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    
+    <div class="mt-auto flex flex-col gap-4">
+      <Button text="Agenda una llamada" />
+      
+      <div class="flex justify-center space-x-6">
+        <a href="#" class="text-3xl text-gray-600 hover:text-blue-600 transition duration-150 ease-in-out">
+          <i class="ri-instagram-fill"></i>
+        </a>
+        <a href="#" class="text-3xl text-gray-600 hover:text-blue-600 transition duration-150 ease-in-out">
+          <i class="ri-tiktok-fill"></i>
+        </a>
+        <a href="#" class="text-3xl text-gray-600 hover:text-blue-600 transition duration-150 ease-in-out">
+          <i class="ri-facebook-fill"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <button 
+    id="menuClose" 
+    class="absolute top-4 right-4 text-3xl text-gray-600 cursor-pointer hover:text-gray-900 transition duration-150 ease-in-out"
+  >
+    <i class="ri-close-large-line"></i>
+  </button>
+</div>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const closeMenu = document.getElementById('menuClose');
+  const fullScreenMenu = document.getElementById('fullScreenMenu');
+
+  menuToggle?.addEventListener('click', () => {
+    fullScreenMenu?.classList.remove('hidden');
+  });
+
+  closeMenu?.addEventListener('click', () => {
+    fullScreenMenu?.classList.add('hidden');
+  });
+</script>

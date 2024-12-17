@@ -6,6 +6,23 @@ import aldoHoyosLogo from '@images/clients/aldo-hoyos.png';
 import amcLogo from '@images/clients/arias-medical-clinic.png';
 import britaniaLogo from '@images/clients/britania.png';
 import cimaAbogadosLogo from '@images/clients/cima-abogados.png';
+import cimaRsLogo from '@images/clients/cima-rs.png';
+import darkyDogsLogo from '@images/clients/darky-dogs.png';
+import davidRomanLogo from '@images/clients/david-roman.png';
+import discoveryMeridaLogo from '@images/clients/discovery-merida.png';
+import drMarinLogo from '@images/clients/dr-marin.png';
+import encinosLogo from '@images/clients/encinos.png';
+import estoicoUrbanoLogo from '@images/clients/estoico-urbano.png';
+import gimnastikaLogo from '@images/clients/gimnastika.png';
+import haDepilacionLogo from '@images/clients/ha-depilacion.png';
+import iexLogo from '@images/clients/iex.png';
+import mujerPlena360Logo from '@images/clients/mujer-plena-360.png';
+import plenitudFemenina365Logo from '@images/clients/plenitud-femenina-365.png';
+import radicalRemedyLogo from '@images/clients/radical-remedy.png';
+import sagesseLogo from '@images/clients/sagesse.png';
+import sercoLogo from '@images/clients/serco.png';
+import vanguardiaAcademicsLogo from '@images/clients/vanguardia-academics.png';
+import vidasConPropositoLogo from '@images/clients/vidas-con-proposito.png';
 
 const clientes = [
   {
@@ -13,11 +30,11 @@ const clientes = [
     image: amcLogo
   },
   {
-    name: 'Aldo Hoyos',
+    name: 'Aldo Hoyos Nutrición',
     image: aldoHoyosLogo
   },
   {
-    name: 'Britania',
+    name: 'Club Britania Ánimas Xalapa',
     image: britaniaLogo
   },
   {
@@ -27,6 +44,74 @@ const clientes = [
   {
     name: 'Ajaw',
     image: ajawLogo
+  },
+  {
+    name: 'CIMA RS',
+    image: cimaRsLogo
+  },
+  {
+    name: 'Darky Dogs',
+    image: darkyDogsLogo
+  },
+  {
+    name: 'David Roman',
+    image: davidRomanLogo
+  },
+  {
+    name: 'Vidas con Propósito',
+    image: vidasConPropositoLogo
+  },
+  {
+    name: 'Discovery Merida',
+    image: discoveryMeridaLogo
+  },
+  {
+    name: 'Dr. Marín',
+    image: drMarinLogo
+  },
+  {
+    name: 'Encinos',
+    image: encinosLogo
+  },
+  {
+    name: 'Estoico Urbano',
+    image: estoicoUrbanoLogo
+  },
+  {
+    name: 'Gimnastika',
+    image: gimnastikaLogo
+  },
+  {
+    name: 'Ha Depilación',
+    image: haDepilacionLogo
+  },
+  {
+    name: 'IEX',
+    image: iexLogo
+  },
+  {
+    name: 'Mujer Plena 360',
+    image: mujerPlena360Logo
+  },
+  {
+    name: 'Plenitud Femenina',
+    image: plenitudFemenina365Logo
+  },
+  {
+    name: 'Radical Remedy',
+    image: radicalRemedyLogo
+  },
+  {
+    name: 'Sagesse',
+    image: sagesseLogo
+  },
+  {
+    name: 'Serco',
+    image: sercoLogo
+  },
+  {
+    name: 'Vanguardia Academics',
+    image: vanguardiaAcademicsLogo
   }
 ];
 
@@ -61,7 +146,7 @@ const clientes = [
   // Initialize Swiper
   new Swiper('.brands-slider', {
     modules: [Autoplay],
-    slidesPerView: 1,
+    slidesPerView: 2,
     spaceBetween: 15,
     loop: true,
     autoplay: {
@@ -70,16 +155,16 @@ const clientes = [
     },
     breakpoints: {
       640: {
-        slidesPerView: 2,
-      },
-      768: {
         slidesPerView: 3,
       },
-      1024: {
+      768: {
         slidesPerView: 4,
       },
+      1024: {
+        slidesPerView: 5,
+      },
     },
-    speed: 5000,
+    speed: 3000,
   });
 </script>
 

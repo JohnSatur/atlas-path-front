@@ -2,6 +2,8 @@
 import { Image } from 'astro:assets';
 import Button from '@components/ui/Button.astro';
 import logoH from '@images/logo-horizontal.png';
+import DesktopMenu from '@components/sections/navbarFooter/DesktopMenu.astro';
+import MobileMenu from '@components/sections/navbarFooter/MobileMenu.astro';
 
 const navItems = [
   { text: 'Quiénes Somos', href: '#about' },
@@ -11,80 +13,51 @@ const navItems = [
   { text: 'Blog', href: '#blog' },
 ];
 ---
-<header class="sticky top-0 z-50 -mt-[64px]">
-  <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+<header id="mainHeader" class="sticky top-0 z-50 -mt-[64px]">
+  <div id="navBackground" class="absolute inset-0 bg-white/0 backdrop-blur-0 transition-all duration-300"></div>
+  <nav class="container relative mx-auto px-6 py-3 flex justify-between items-center">
     <a href="/">
-      <Image src={ logoH } alt="Logo" width="150" />
+      <Image src={logoH} alt="Logo" width="150" />
     </a>
-      
-      <!-- Menú para pantallas grandes -->
-      <div class="hidden lg:flex items-center gap-6">
-        {navItems.map(item => (
-          <a href={ item.href } class="font-title text-gray-600 font-semibold hover:text-primary transition-colors">
-            { item.text }
-          </a>
-        ))}
-      </div>
-      
-      <a href="" class="hidden lg:block bg-brand-600 text-white px-4 py-2 rounded-md hover:bg-secondary transition-colors">Agenda una llamada</a>
-      
-      <!-- Botón de menú para pantallas pequeñas -->
-      <button id="menuToggle" class="lg:hidden text-2xl text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600">
-        <i class="ri-menu-3-line"></i>
-      </button>
+    
+    <DesktopMenu items={navItems} />
+    
+    <a href="" class="hidden lg:block bg-brand-600 text-white px-4 py-2 rounded-md hover:bg-secondary transition-colors">
+      Agenda una llamada
+    </a>
+    
+    <button 
+      id="menuToggle" 
+      class="lg:hidden text-2xl text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600"
+    >
+      <i class="ri-menu-3-line"></i>
+    </button>
   </nav>
 </header>
 
-<!-- Menú de pantalla completa para dispositivos móviles -->
-<div id="fullScreenMenu" class="fixed inset-0 bg-gradient-to-br from-white to-brand-200 z-50 hidden lg:hidden overflow-y-auto">
-  <div class="mx-auto px-6 py-8 flex flex-col items-center min-h-screen">
-    <a href="/" class="mt-4">
-      <Image src={ logoH } alt="Logo" width="300" />
-    </a>
-    
-    <nav class="flex flex-grow flex-col items-center justify-center gap-32">
-
-      <ul class="flex flex-col items-center gap-8">
-        <li><a href="#" class="text-4xl font-semibold text-gray-800 hover:text-blue-600 transition duration-150 ease-in-out block">Quienes somos</a></li>
-        <li><a href="#" class="text-4xl font-semibold text-gray-800 hover:text-blue-600 transition duration-150 ease-in-out block">Servicios</a></li>
-        <li><a href="#" class="text-4xl font-semibold text-gray-800 hover:text-blue-600 transition duration-150 ease-in-out block">Portafolio</a></li>
-        <li><a href="#" class="text-4xl font-semibold text-gray-800 hover:text-blue-600 transition duration-150 ease-in-out block">Nuestros clientes</a></li>
-        <li><a href="#" class="text-4xl font-semibold text-gray-800 hover:text-blue-600 transition duration-150 ease-in-out block">Blog</a></li>
-      </ul>
-    </nav>
-    
-    <div class="mt-auto flex flex-col gap-4">
-      <Button text="Agenda una llamada" />
-      
-      <div class="flex justify-center space-x-6">
-        <a href="#" class="text-3xl text-gray-600 hover:text-blue-600 transition duration-150 ease-in-out">
-          <i class="ri-instagram-fill"></i>
-        </a>
-        <a href="#" class="text-3xl text-gray-600 hover:text-blue-600 transition duration-150 ease-in-out">
-          <i class="ri-tiktok-fill"></i>
-        </a>
-        <a href="#" class="text-3xl text-gray-600 hover:text-blue-600 transition duration-150 ease-in-out">
-          <i class="ri-facebook-fill"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div id="menuClose" class="absolute top-4 right-4 text-3xl text-gray-600 cursor-pointer hover:text-gray-900 transition duration-150 ease-in-out">
-    <i class="ri-close-large-line"></i>
-  </div>
-</div>
+<MobileMenu items={navItems} logo={logoH} />
 
 <script>
-  const menuToggle = document.getElementById('menuToggle') as HTMLButtonElement;
-  const closeMenu = document.getElementById('menuClose') as HTMLButtonElement;
-  const fullScreenMenu = document.getElementById('fullScreenMenu') as HTMLDivElement;
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-  menuToggle.addEventListener('click', () => {
-      fullScreenMenu.classList.remove('hidden');
-  });
+  gsap.registerPlugin(ScrollTrigger);
 
-  closeMenu.addEventListener('click', () => {
-      fullScreenMenu.classList.add('hidden');
+  const navBackground = document.querySelector('#navBackground');
+  
+  gsap.to(navBackground, {
+    scrollTrigger: {
+      start: 'top top',
+      end: '800px',
+      scrub: true,
+      onUpdate: (self) => {
+        const progress = self.progress;
+        navBackground?.setAttribute(
+          'style',
+          `background-color: rgba(232, 242, 248, ${progress * 0.9}); 
+           backdrop-filter: blur(${progress * 8}px);`
+        );
+      },
+    },
   });
 </script>

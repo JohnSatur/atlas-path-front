@@ -1,0 +1,20 @@
+---
+interface Props {
+  items: Array<{
+    text: string;
+    href: string;
+  }>;
+}
+
+const { items } = Astro.props;
+---
+<div class="hidden lg:flex items-center gap-6">
+  {items.map(item => (
+    <a 
+      href={item.href} 
+      class="font-title text-gray-600 font-semibold hover:text-primary transition-colors"
+    >
+      {item.text}
+    </a>
+  ))}
+</div>
