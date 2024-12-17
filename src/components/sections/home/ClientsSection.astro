@@ -1,0 +1,92 @@
+---
+import { Image } from 'astro:assets';
+
+import ajawLogo from '@images/clients/ajaw.png';
+import aldoHoyosLogo from '@images/clients/aldo-hoyos.png';
+import amcLogo from '@images/clients/arias-medical-clinic.png';
+import britaniaLogo from '@images/clients/britania.png';
+import cimaAbogadosLogo from '@images/clients/cima-abogados.png';
+
+const clientes = [
+  {
+    name: 'Arias Medical Clinic',
+    image: amcLogo
+  },
+  {
+    name: 'Aldo Hoyos',
+    image: aldoHoyosLogo
+  },
+  {
+    name: 'Britania',
+    image: britaniaLogo
+  },
+  {
+    name: 'CIMA Abogados',
+    image: cimaAbogadosLogo
+  },
+  {
+    name: 'Ajaw',
+    image: ajawLogo
+  }
+];
+
+---
+
+<section class="bg-gradient-to-br from-brand-100 to-brand-200 py-8">
+  <div class="container mx-auto px-4">
+    <h2 class="text-5xl font-bold font-title text-brand-900 text-center mb-12 drop-shadow-md">Marcas que confían en nosotros</h2>
+    
+    <!-- Slider main container -->
+    <div class="swiper brands-slider">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        { 
+          clientes.map((cliente) => (
+            <div class="swiper-slide flex items-center justify-center p-5">
+              <Image src={ cliente.image } alt={ cliente.name } class="mx-auto h-20 object-contain" />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import Swiper from 'swiper';
+  import { Autoplay } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+
+  // Initialize Swiper
+  new Swiper('.brands-slider', {
+    modules: [Autoplay],
+    slidesPerView: 1,
+    spaceBetween: 15,
+    loop: true,
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 2,
+      },
+      768: {
+        slidesPerView: 3,
+      },
+      1024: {
+        slidesPerView: 4,
+      },
+    },
+    speed: 5000,
+  });
+</script>
+
+<style>
+  .swiper-wrapper {
+    -webkit-transition-timing-function: linear;
+    -o-transition-timing-function: linear;
+    transition-timing-function: linear;
+  }
+</style>
