@@ -1,5 +1,8 @@
 ---
 import FeaturedBlogPost from '@components/ui/FeaturedBlogPost.astro';
+import blogTemp1 from '@images/blog-temp-1.jpg';
+import blogTemp2 from '@images/blog-temp-2.jpg';
+import blogTemp3 from '@images/blog-temp-3.jpg';
 
 const featuredPosts = [
   {
@@ -7,7 +10,7 @@ const featuredPosts = [
     excerpt: 'Descubre las últimas tendencias en diseño web que dominarán el próximo año y cómo implementarlas en tus proyectos.',
     date: '2023-12-15',
     author: 'Ana Martínez',
-    image: '/images/blog/tendencias-diseno-web.jpg',
+    image: blogTemp1,
     link: '/blog/tendencias-diseno-web-2024'
   },
   {
@@ -15,7 +18,7 @@ const featuredPosts = [
     excerpt: 'Aprende técnicas avanzadas para mejorar tu presencia online y aumentar la conversión en tus campañas de marketing digital.',
     date: '2023-12-01',
     author: 'Carlos Rodríguez',
-    image: '/images/blog/optimizar-marketing-digital.jpg',
+    image: blogTemp2,
     link: '/blog/optimizar-estrategia-marketing-digital'
   },
   {
@@ -23,13 +26,13 @@ const featuredPosts = [
     excerpt: 'Explora cómo la IA está transformando la industria del desarrollo de software y qué significa esto para el futuro de la programación.',
     date: '2023-11-20',
     author: 'Laura Sánchez',
-    image: '/images/blog/ia-desarrollo-software.jpg',
+    image: blogTemp3,
     link: '/blog/impacto-ia-desarrollo-software'
   }
 ];
 ---
 
-<section class="py-16 bg-gray-50">
+<section class="py-16">
   <div class="container mx-auto px-4">
     <div class="flex justify-between items-center mb-12">
       <h2 class="text-3xl font-bold text-gray-800">Blog Destacado</h2>
@@ -42,14 +45,7 @@ const featuredPosts = [
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {featuredPosts.map((post) => (
-        <FeaturedBlogPost
-          title={post.title}
-          excerpt={post.excerpt}
-          date={post.date}
-          author={post.author}
-          image={post.image}
-          link={post.link}
-        />
+        <FeaturedBlogPost { ...post } />
       ))}
     </div>
   </div>

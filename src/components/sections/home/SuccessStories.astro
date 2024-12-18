@@ -1,35 +1,35 @@
 ---
 import SuccessCase from '@/components/ui/SuccessCase.astro';
-import tempImg from '@images/temp1.png';
+import amcSuccessTemp from '@images/success-temp-1.jpg';
 
 const successCases = [
   {
     title: 'Arias Medical Clinic',
     description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id dolores unde ad reprehenderit, quis facilis possimus labore ea impedit quas?',
-    image: tempImg,
+    image: amcSuccessTemp,
     link: '/casos-de-exito/empresa-a'
   },
   {
     title: 'Arias Medical Clinic',
     description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id dolores unde ad reprehenderit, quis facilis possimus labore ea impedit quas?',
-    image: tempImg,
+    image: amcSuccessTemp,
     link: '/casos-de-exito/startup-b'
   },
   {
     title: 'Arias Medical Clinic',
     description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id dolores unde ad reprehenderit, quis facilis possimus labore ea impedit quas?',
-    image: tempImg,
+    image: amcSuccessTemp,
     link: '/casos-de-exito/marca-c'
   }
 ];
 ---
-<section class="py-16 bg-gray-50">
+<section class="py-16">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Casos de Éxito</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {
         successCases.map((successCase) => (
-          <SuccessCase {...successCase} />
+          <SuccessCase { ...successCase } />
         ))
       }
     </div>
