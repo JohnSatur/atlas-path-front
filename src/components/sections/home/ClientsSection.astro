@@ -23,6 +23,8 @@ import sagesseLogo from '@images/clients/sagesse.png';
 import sercoLogo from '@images/clients/serco.png';
 import vanguardiaAcademicsLogo from '@images/clients/vanguardia-academics.png';
 import vidasConPropositoLogo from '@images/clients/vidas-con-proposito.png';
+import arduraLogo from '@images/clients/ardura.png';
+import grupoVanguardiaLogo from '@images/clients/grupo-vanguardia.png';
 
 const clientes = [
   {
@@ -50,6 +52,10 @@ const clientes = [
     image: cimaRsLogo
   },
   {
+    name: 'Grupo Vanguardia',
+    image: grupoVanguardiaLogo
+  },
+  {
     name: 'Darky Dogs',
     image: darkyDogsLogo
   },
@@ -72,6 +78,10 @@ const clientes = [
   {
     name: 'Encinos',
     image: encinosLogo
+  },
+  {
+    name: 'Ardura',
+    image: arduraLogo
   },
   {
     name: 'Estoico Urbano',
@@ -112,7 +122,7 @@ const clientes = [
   {
     name: 'Vanguardia Academics',
     image: vanguardiaAcademicsLogo
-  }
+  },
 ];
 
 ---
@@ -128,7 +138,7 @@ const clientes = [
         { 
           clientes.map((cliente) => (
             <div class="swiper-slide flex items-center justify-center p-5">
-              <Image src={ cliente.image } alt={ cliente.name } class="mx-auto h-20 object-contain" />
+              <Image src={ cliente.image } alt={ cliente.name } height={ 80 } class="mx-auto h-20 object-contain" loading={'eager'} />
             </div>
           ))
         }

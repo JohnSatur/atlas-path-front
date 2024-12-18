@@ -14,7 +14,7 @@ const { title, description, icon, link, image } = Astro.props;
 
 <div class="service-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group">
   <div class="relative overflow-hidden">
-    <Image src={ image } alt={ title } class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110" />
+    <Image src={ image } alt={ title } height={ 400 } loading={ 'lazy' } class="w-full h-80 md:h-48 lg:h-72 object-cover transition-transform duration-300 group-hover:scale-110" />
     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
     <div class="absolute bottom-4 left-4 right-4">
       <h3 class="text-xl font-bold font-title tracking-wide text-white group-hover:text-brand-300 transition-colors duration-300">{ title }</h3>
