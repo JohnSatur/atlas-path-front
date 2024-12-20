@@ -49,6 +49,14 @@ const socialImage = Astro.url.origin + socialImageRes.src;
 <meta content="600" property="og:image:height" />
 <meta content="image/png" property="og:image:type" />
 
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:domain" content={URL} />
+<meta name="twitter:url" content={URL} />
+<meta name="twitter:title" content={ogTitle} />
+<meta name="twitter:description" content={ogDescription} />
+<meta name="twitter:image" content={socialImage} />
+
 <!-- GFS Neohellenic -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
