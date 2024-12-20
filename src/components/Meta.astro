@@ -2,7 +2,6 @@
 import { SITE, SEO, OG } from '@data/constants';
 import { getImage } from 'astro:assets';
 import faviconSvgSrc from '@images/logo.svg';
-import faviconSrc from '@images/logo.png';
 
 const defaultProps = {
   meta: SITE.description,
@@ -32,7 +31,15 @@ const faviconSvg = await getImage({
   format: 'svg',
 });
 ---
-<!-- TODO: Agregar todas las etiquetas SEO -->
+
+<!-- https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data -->
+{
+  structuredData && (
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  )
+}
+
+<!-- General Meta -->
 <meta charset="utf-8" />
 <meta content={meta} name="description" />
 <meta name="web_author" content={author} />
@@ -42,7 +49,6 @@ const faviconSvg = await getImage({
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <link rel="canonical" href={canonical} />
 <meta name="generator" content={Astro.generator} />
-<Fragment set:html={structuredData} />
 
 <!-- Facebook Meta Tags -->
 <meta property="og:locale" content="es_MX" />
