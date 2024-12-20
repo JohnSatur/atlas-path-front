@@ -1,7 +1,6 @@
 ---
 import ServiceCard from '@/components/ui/ServiceCard.astro';
 
-import testImg from '@images/temp1.png';
 import uiux from '@images/uiux-card.jpg';
 import mobile from '@images/mobile-card.jpg';
 import design from '@images/design-card.jpg';
@@ -10,6 +9,7 @@ import photography from '@images/photography-card.jpg';
 import videoproduction from '@images/videoproduction-card.jpg';
 import marketing from '@images/marketing-card.jpg';
 import dataAnalysis from '@images/data-analysis-card.jpg';
+import animation from '@images/animation-card.jpg';
 
 const services = [
   {
@@ -24,7 +24,7 @@ const services = [
     description: 'Damos vida a tus ideas con animaciones cautivadoras y dinámicas.',
     icon: 'ri-film-fill',
     link: '/servicios/animacion-digital',
-    image: testImg
+    image: animation
   },
   {
     title: 'Diseño UI/UX',
@@ -85,7 +85,7 @@ const services = [
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {
           services.map((service) => (
-            <ServiceCard {...service} />
+            <ServiceCard { ...service } />
           ))
         }
       </div>
