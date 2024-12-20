@@ -1,6 +1,8 @@
 ---
 import { SITE, SEO, OG } from '@data/constants';
 import { getImage } from 'astro:assets';
+import faviconSvgSrc from '@images/logo.svg';
+import faviconSrc from '@images/logo.png';
 
 const defaultProps = {
   meta: SITE.description,
@@ -24,6 +26,11 @@ const socialImageRes = await getImage({
   height: 1080
 });
 const socialImage = Astro.url.origin + socialImageRes.src;
+
+const faviconSvg = await getImage({
+  src: faviconSvgSrc,
+  format: 'svg',
+});
 ---
 <!-- TODO: Agregar todas las etiquetas SEO -->
 <meta charset="utf-8" />
@@ -56,6 +63,13 @@ const socialImage = Astro.url.origin + socialImageRes.src;
 <meta name="twitter:title" content={ogTitle} />
 <meta name="twitter:description" content={ogDescription} />
 <meta name="twitter:image" content={socialImage} />
+
+<!-- Sitemap -->
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<!-- Favicons -->
+<link rel="icon" sizes="any" href="/favicon.ico" type="image/x-icon">
+<link href={faviconSvg.src} rel="icon" type="image/svg+xml" sizes="any">
 
 <!-- GFS Neohellenic -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
