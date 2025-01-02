@@ -9,6 +9,10 @@ import FeaturedBlog from "@/components/sections/home/FeaturedBlog.astro";
 import ContactSection from "@/components/sections/home/ContactSection.astro";
 import ClientsSection from "@/components/sections/home/ClientsSection.astro";
 
+const {
+  geo: { city },
+} = Astro.locals.netlify.context;
+
 
 ---
 
@@ -21,4 +25,7 @@ import ClientsSection from "@/components/sections/home/ClientsSection.astro";
 	<SuccessStories />
 	<FeaturedBlog />
 	<ContactSection />
+	<div>
+		Hola, amigo de {city}
+	</div>
 </MainLayout>
