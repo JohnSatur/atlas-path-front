@@ -1,7 +1,7 @@
 ---
 import { SITE, SEO, OG } from '@data/constants';
 import { getImage } from 'astro:assets';
-import faviconSvgSrc from '@images/logo.svg';
+import faviconPngSrc from '@images/logo.png';
 
 const defaultProps = {
   meta: SITE.description,
@@ -26,9 +26,9 @@ const socialImageRes = await getImage({
 });
 const socialImage = Astro.url.origin + socialImageRes.src;
 
-const faviconSvg = await getImage({
-  src: faviconSvgSrc,
-  format: 'svg',
+const faviconPng = await getImage({
+  src: faviconPngSrc,
+  format: 'png',
 });
 ---
 
@@ -75,7 +75,7 @@ const faviconSvg = await getImage({
 
 <!-- Favicons -->
 <link rel="icon" sizes="any" href="/favicon.ico" type="image/x-icon">
-<link href={faviconSvg.src} rel="icon" type="image/svg+xml" sizes="any">
+<link href={faviconPng.src} rel="icon" type="image/png" sizes="any">
 
 <!-- GFS Neohellenic -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
