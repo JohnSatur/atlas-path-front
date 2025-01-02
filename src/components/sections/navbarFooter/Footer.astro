@@ -1,4 +1,119 @@
 ---
-
+const currentYear = new Date().getFullYear();
 ---
 
+<footer class="bg-brand-800 text-white py-12">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+      <!-- Contacto -->
+      <div class="footer-section">
+        <h3 class="text-xl font-semibold mb-4">Contacto</h3>
+        <ul class="space-y-2">
+          <li class="flex items-center">
+            <i class="ri-mail-fill text-xl mr-2 text-brand-400"></i>
+            <a href="mailto:contacto@therealatlaspath.com" class="hover:text-brand-400 transition-colors">contacto@therealatlaspath.com</a>
+          </li>
+          <li class="flex items-center">
+            <i class="ri-map-pin-2-fill text-xl mr-2 text-brand-400"></i>
+            <span>Dirección</span>
+          </li>
+          <li class="flex items-center">
+            <i class="ri-phone-fill text-xl mr-2 text-brand-400"></i>
+            <a href="tel:+1234567890" class="hover:text-brand-400 transition-colors">Teléfono</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Nuestra especialidad -->
+      <div class="footer-section">
+        <h3 class="text-xl font-semibold mb-4">Nuestra especialidad</h3>
+        <ul class="space-y-2">
+          <li>Consultorios médicos</li>
+          <li>Firmas de abogados</li>
+          <li>Bienes raíces</li>
+          <li>Proveedores de servicios</li>
+        </ul>
+      </div>
+
+      <!-- Menú -->
+      <div class="footer-section">
+        <h3 class="text-xl font-semibold mb-4">Menú</h3>
+        <ul class="space-y-2">
+          <li><a href="/" class="hover:text-brand-400 transition-colors">Inicio</a></li>
+          <li><a href="/quienes-somos" class="hover:text-brand-400 transition-colors">Quiénes somos</a></li>
+          <li><a href="/servicios" class="hover:text-brand-400 transition-colors">Servicios</a></li>
+          <li><a href="/portafolio" class="hover:text-brand-400 transition-colors">Portafolio</a></li>
+          <li><a href="/nuestros-clientes" class="hover:text-brand-400 transition-colors">Nuestros Clientes</a></li>
+          <li><a href="/blog" class="hover:text-brand-400 transition-colors">Blog</a></li>
+        </ul>
+      </div>
+
+      <!-- Servicios -->
+      <div class="footer-section">
+        <h3 class="text-xl font-semibold mb-4">Servicios</h3>
+        <ul class="space-y-2">
+          <li>Diseño gráfico</li>
+          <li>Animación digital</li>
+          <li>Diseño UI/UX</li>
+          <li>Desarrollo de software</li>
+          <li>Desarrollo móvil</li>
+          <li>Marketing digital</li>
+          <li>Análisis de datos</li>
+          <li>Videoproducciones</li>
+          <li>Fotografía</li>
+        </ul>
+      </div>
+
+      <!-- Redes sociales -->
+      <div class="footer-section">
+        <h3 class="text-xl font-semibold mb-4">Síguenos</h3>
+        <div class="flex space-x-4">
+          <a href="https://www.facebook.com/profile.php?id=61568824017958" target="_blank" rel="noopener noreferrer" class="text-white hover:text-brand-400 transition-colors">
+            <i class="ri-facebook-fill text-xl"></i>
+            <span class="sr-only">Facebook</span>
+          </a>
+          <a href="https://x.com/realatlaspath" target="_blank" rel="noopener noreferrer" class="text-white hover:text-brand-400 transition-colors">
+            <i class="ri-instagram-fill text-xl"></i>
+            <span class="sr-only">Instagram</span>
+          </a>
+          <a href="https://www.instagram.com/atlas_path/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-brand-400 transition-colors">
+            <i class="ri-twitter-x-fill text-xl"></i>
+            <span class="sr-only">X</span>
+          </a>
+          <a href="https://www.linkedin.com/in/guillermo-mu%C3%B1oz-arcos-21b651342/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-brand-400 transition-colors">
+            <i class="ri-linkedin-fill"></i>
+            <span class="sr-only">LinkedIn</span> 
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-gray-700 text-center">
+      <p>&copy; {currentYear} The Real Atlas Path. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  function animateFooter() {
+    gsap.from(".footer-section", {
+      scrollTrigger: {
+        trigger: "footer",
+        start: "top bottom-=100px",
+        toggleActions: "play none none reverse"
+      },
+      y: 30,
+      opacity: 0,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: "power2.out"
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", animateFooter);
+</script>
