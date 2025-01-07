@@ -9,6 +9,7 @@
       "@layouts/*": ["src/layouts/*"],
       "@pages/*": ["src/pages/*"],
       "@images/*": ["src/assets/img/*"],
+      "@videos/*": ["src/assets/video/*"],
     }
   },
   "include": [

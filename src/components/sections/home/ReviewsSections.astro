@@ -1,0 +1,140 @@
+---
+import amcReview from '@videos/testimonio-amc.mp4';
+import cimaReview1 from '@videos/testimonio-cima-1.mp4';
+import cimaReview2 from '@videos/testimonio-cima-2.mp4';
+import aldoReview from '@videos/testimonio-aldohoyos.mp4';
+import davidReview from '@videos/testimonio-davidroman.mp4';
+
+import amcThumbnail from '@images/review-thumbnail-amc.jpg';
+import cimaThumbnail from '@images/review-thumbnail-cimars.jpg';
+import aldoThumbnail from '@images/review-thumbnail-aldohoyos.jpg';
+import davidThumbnail from '@images/review-thumbnail-davidroman.jpg';
+
+// Sample video data - replace with your actual video data
+const videos = [
+  {
+    id: 1,
+    title: "Arias Medical Clinic",
+    url: amcReview,
+    thumbnail: amcThumbnail.src
+  },
+  {
+    id: 2,
+    title: "CIMA Bienes Raíces",
+    url: cimaReview1,
+    thumbnail: cimaThumbnail.src
+  },
+  {
+    id: 3,
+    title: "CIMA Bienes Raíces",
+    url: cimaReview2,
+    thumbnail: cimaThumbnail.src
+  },
+  {
+    id: 4,
+    title: "Aldo Hoyos Nutrición",
+    url: aldoReview,
+    thumbnail: aldoThumbnail.src
+  },
+  {
+    id: 5,
+    title: "Dr. David Roman",
+    url: davidReview,
+    thumbnail: davidThumbnail.src
+  }
+];
+---
+
+<section class="bg-gradient-to-br from-brand-100 to-brand-200 py-16">
+  <div class="container mx-auto px-4">
+    <h2 class="text-5xl font-bold font-title text-brand-900 text-center mb-12 drop-shadow-md">
+      ¿Qué opinan nuestros clientes?
+    </h2>
+    
+    <div class="swiper video-slider">
+      <div class="swiper-wrapper">
+        {
+          videos.map((video) => (
+            <div class="swiper-slide">
+              <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition-transform duration-300 hover:-translate-y-2">
+                <div class="aspect-[9/16] w-full">
+                  <video 
+                    class="w-full h-full object-cover"
+                    poster={video.thumbnail}
+                    controls
+                    preload="none"
+                  >
+                    <source src={video.url} type="video/mp4" />
+                    Tu navegador no soporta el tag de video.
+                  </video>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 p-4 text-center">
+                  {video.title}
+                </h3>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  :global(.video-slider) {
+    @apply w-full;
+    height: 90vh;
+    padding: 1rem;
+  }
+
+  :global(.video-slider .swiper-slide) {
+    height: calc(90vh - 2rem);
+    width: 100%;
+    max-width: calc((70vh - 2rem) * (9/16));
+  }
+
+  :global(.swiper-button-next),
+  :global(.swiper-button-prev) {
+    @apply text-brand-900;
+  }
+
+  :global(.swiper-pagination-bullet) {
+    @apply bg-brand-900;
+  }
+
+  :global(.swiper-pagination-bullet-active) {
+    @apply bg-brand-500;
+  }
+</style>
+
+<script>
+  import Swiper from 'swiper';
+  import { Navigation, Pagination } from 'swiper/modules';
+
+  new Swiper('.video-slider', {
+    modules: [Navigation, Pagination],
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: 1,
+    spaceBetween: 30,
+    breakpoints: {
+      768: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 3,
+      },
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+</script>
