@@ -16,10 +16,10 @@ const navItems = [
   <div id="navBackground" class="absolute inset-0 bg-white/0 backdrop-blur-0 transition-all duration-300"></div>
   <nav class="container relative mx-auto px-6 py-3 flex justify-between items-center">
     <a href="/">
-      <Image src={logoH} alt="Logo" width="150" />
+      <Image src={ logoH } alt="Logo" width="150" />
     </a>
     
-    <DesktopMenu items={navItems} />
+    <DesktopMenu items={ navItems } />
     
     <a href="" class="hidden lg:block bg-brand-600 text-white px-4 py-2 rounded-md hover:bg-secondary transition-colors">
       Agenda una llamada
@@ -34,7 +34,7 @@ const navItems = [
   </nav>
 </header>
 
-<MobileMenu items={navItems} logo={logoH} />
+<MobileMenu items={ navItems } logo={ logoH } />
 
 <script>
   import { gsap } from 'gsap';
